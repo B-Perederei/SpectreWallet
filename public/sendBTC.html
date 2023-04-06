@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SpectreWallet</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <header>
+            <a href = "signedup.html">
+                <img src="images/spectre_logo.svg" alt="SpectreWallet logo">
+                <h2>SpectreWallet</h2>
+                <h4>Browser based Bitcoin wallet</h4>
+            </a>
+            <span>
+                <p>
+                    BTC price
+                    <br>
+                    $ 22,000
+                </p>
+            </span>
+            <a href = "index.html">
+                <img src="images/logout.svg" alt="Logout image">
+                Logout
+            </a>
+        </header>
+
+        <main>
+            <div>
+                <h1>Balance: 100,60 USD</h1>
+                <h2>0,00018595 BTC</h2>
+            </div>
+
+            <form action = "signedup.html">
+                <div>
+                    <h2>Destination address</h2>
+                    <span>
+                        <input type="text" placeholder="Paste or load QR code" name="address" required>
+                        <button>Load QR code</button>
+                    </span>
+                </div>
+                <div>
+                    <h2>Amount</h2>
+                    <span>
+                        <input type="number" placeholder="$0.00 USD" name="AmountUSD" required>
+                        =
+                        <input type="number" placeholder="0.00 BTC" name="AmountBTC" required>
+                    </span>
+                </div>
+                <div>
+                    <h2>Transaction fee</h2>
+                    <span>
+                        <input type="number" placeholder="4 sat/byte" name="TransactionFee" required>
+                        0.00003 (0,20 $)
+                    </span>
+                    <select>
+                        <option>Low fee</option>
+                        <option>Medium fee</option>
+                        <option>High fee</option>
+                    </select>
+                </div>
+                <span>
+                    <button onclick="window.location.href = signedup.html;" type="submit">SEND</button>
+                </span>
+            </form>
+        </main>
+
+        <footer>
+            <div>
+                <p>
+                    This page uses javascript to generate your addresses and sign your transactions within your browser.
+                    <br>
+                    This means we never receive your private keys.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

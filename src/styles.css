@@ -1,0 +1,191 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column;
+}
+
+body {
+  background-image: 
+  linear-gradient(to right bottom, #00f5bc, #00e3e3,
+                     #00ccff, #00aeff, #00aeff, #0085ff, #9041f0);
+}
+
+/* Header styles */
+header {
+  background-color: #19fb9b;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  margin-bottom: 1rem;
+}
+
+header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+header img {
+  width: 60px;
+  height: 60px;
+  margin: 0rem 1rem 0rem 0rem;
+}
+
+header h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: left;
+}
+
+header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: left;
+}
+
+header h4 {
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: left;
+}
+
+/* Main section */
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 1rem;
+  margin: 1rem 3rem 1rem 5rem;
+  margin-top: 5%;
+  gap: 20%;
+}
+
+main div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+main h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+main div button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: #293133;
+  color: #fff;
+  cursor: pointer;
+  max-width: 200px;
+}
+
+main button:hover {
+  background-color: #fff;
+  color: #293133;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 1rem;
+  max-width: 600px;
+}
+
+form label {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+
+form input {
+  width: 120%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 40px;
+  border: 2px solid #000;
+  background-color: #a058ff;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+form input::placeholder {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+form button {
+  width: 80%;
+  background-color: #46fbaf;
+  color: #000;
+  border-radius: 2.25rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #00edd5;
+}
+
+/* Footer styles */
+footer {
+  background-color: #19fb9b;
+  color: #000;
+  padding: 0.5rem;
+  text-align: center;
+  position: fixed;
+  margin-top: 1rem;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer-left ul li {
+  margin-right: 1rem;
+}
+
+.footer-left ul li:last-child {
+  margin-right: 0;
+}
+
+.footer-left ul li a {
+  color: #000;
+}
+
+.footer-left ul li a img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-right p {
+  margin: 0;
+  padding-right: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
