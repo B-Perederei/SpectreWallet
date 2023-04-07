@@ -5,11 +5,14 @@ import mailLogo from "./images/mail_logo.svg";
 import githubLogo from "./images/github_logo.svg";
 import './styles.css';
 
+import CryptoJS from 'crypto-js';
+
 function SpectreWallet() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
+  
   const [btcPrice, setBtcPrice] = useState(null);
 
   const handleEmailChange = (event) => {
@@ -25,6 +28,14 @@ function SpectreWallet() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isEmailValid && isPasswordValid) {
+      
+      const iterations = 100000;
+      const keyLength = 256;
+      const salt =  CryptoJS.SHA256(email + password).toString();
+      const privateKey = CryptoJS.PBKDF2(password, salt, { keySize: keyLength/32, iterations: iterations, hasher: CryptoJS.algo.SHA256 });
+      
+      localStorage.setItem('privateKey', privateKey);      
+
       window.location.href = '/signedup.html';
     } else {
       console.log("Form is invalid. Please fill all fields correctly.");
@@ -42,8 +53,6 @@ function SpectreWallet() {
       }
     };
     fetchBtcPrice();
-    const interval = setInterval(fetchBtcPrice, 60000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
