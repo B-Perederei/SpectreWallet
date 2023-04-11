@@ -55,6 +55,10 @@ header h4 {
   text-align: left;
 }
 
+h4:hover {
+  cursor: pointer;
+}
+
 /* Main section */
 main {
   display: flex;
@@ -77,7 +81,7 @@ main h1 {
   margin-bottom: 1rem;
 }
 
-main div button {
+.buttonForwarding {
   font-size: 1.2rem;
   padding: 10px 20px;
   border: none;
@@ -85,10 +89,13 @@ main div button {
   background-color: #293133;
   color: #fff;
   cursor: pointer;
-  max-width: 200px;
+  max-width: 170px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
-main button:hover {
+.buttonForwarding:hover {
   background-color: #fff;
   color: #293133;
 }
@@ -120,8 +127,13 @@ form input {
 }
 
 form input::placeholder {
-  color: #fff;
+  color: rgb(248, 245, 245);
   font-size: 1.2rem;
+}
+
+input:focus {
+  outline: none;
+  border: 3px solid #000000;
 }
 
 form button {
@@ -138,6 +150,7 @@ form button {
 
 form button:hover {
   background-color: #00edd5;
+  border: 2px solid #000000;
 }
 
 /* Footer styles */

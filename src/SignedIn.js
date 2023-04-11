@@ -1,28 +1,31 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>SpectreWallet</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+import React, { useState, useEffect } from "react";
+import ReactDOM from 'react-dom';
+import logo from "./images/spectre_logo.svg";
+import telegramLogo from "./images/telegram_logo.svg";
+import mailLogo from "./images/mail_logo.svg";
+import githubLogo from "./images/github_logo.svg";
+import './styles.css';
+import CryptoJS from 'crypto-js';
 
-    <body>
+
+function SignedIn() {
+  return (
+    <div>
         <header>
             <a href = "signedup.html">
-                <img src="images/spectre_logo.svg" alt="SpectreWallet logo">
+                <img src="images/spectre_logo.svg" alt="SpectreWallet logo" />
                 <h2>SpectreWallet</h2>
                 <h4>Browser based Bitcoin wallet</h4>
             </a>
             <span>
                 <p>
                     BTC price
-                    <br>
+                    <br />
                     $ 22,000
                 </p>
             </span>
             <a href = "index.html">
-                <img src="images/logout.svg" alt="Logout image">
+                <img src="images/logout.svg" alt="Logout image" />
                 Logout
             </a>
         </header>
@@ -34,7 +37,6 @@
             </div>
 
             <div>
-                <!-- Make it as a list? -->
                 <a href="sendBTC.html">
                     <button>Send BTC</button>
                 </a>
@@ -52,36 +54,36 @@
                     <tr>
                         <th>
                             Received
-                            <br>
+                            <br />
                             05.03.2022
                         </th>
                         <th>
                             +0,11 USD
-                            <br>
+                            <br />
                             0,000004124 BTC
                         </th>
                         </tr>
                         <tr>
                         <th>
                             Received
-                            <br>
+                            <br />
                             05.03.2022
                         </th>
                         <th>
                             +0,11 USD
-                            <br>
+                            <br />
                             0,000004124 BTC
                         </th>
                         </tr>
                         <tr>
                         <th>
                             Received
-                            <br>
+                            <br />
                             05.03.2022
                         </th>
                         <th>
                             +0,11 USD
-                            <br>
+                            <br />
                             0,000004124 BTC
                         </th>
                         </tr>
@@ -94,10 +96,13 @@
             <div>
                 <p>
                     This page uses javascript to generate your addresses and sign your transactions within your browser.
-                    <br>
+                    <br />
                     This means we never receive your private keys.
                 </p>
             </div>
         </footer>
-    </body>
-</html>
+    </div>
+  );
+}
+
+export default SignedIn;
