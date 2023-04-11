@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import CryptoJS from 'crypto-js';
 
@@ -6,48 +6,15 @@ import logo from "./images/spectre_logo.svg";
 import telegramLogo from "./images/telegram_logo.svg";
 import mailLogo from "./images/mail_logo.svg";
 import githubLogo from "./images/github_logo.svg";
-import './styles.css';
 
 import SignedIn from './SignedIn.js';
-
+import BTCPrice from './BTCPrice.js';
 
 function SpectreWallet() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
-  
-  const [btcPrice, setBtcPrice] = useState(null);
-  const [isUpdatingBtcPrice, setIsUpdatingBtcPrice] = useState(false);
-  
-  useEffect(() => {
-    const fetchBtcPrice = async () => {
-      try {
-        const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
-        const data = await response.json();
-        setBtcPrice(parseInt(data.price));
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchBtcPrice();
-  }, []);
-
-  const handleFetchBtcPrice = async () => {
-    if (isUpdatingBtcPrice) {
-      return;
-    }
-    try {
-      setIsUpdatingBtcPrice(true);
-      const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
-      const data = await response.json();
-      setBtcPrice(parseInt(data.price));
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsUpdatingBtcPrice(false);
-    }
-  };
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -71,7 +38,6 @@ function SpectreWallet() {
       localStorage.setItem('privateKey', privateKey);      
       
       // Rendering new page
-      ReactDOM.render(<SignedIn />, document.getElementById('signedin'));
       window.location.href = '/wallet.html';
     } else {
       console.log("Form is invalid. Please fill all fields correctly.");
@@ -88,12 +54,7 @@ function SpectreWallet() {
             <h4>Browser based Bitcoin wallet</h4>
           </div>
         </a>
-        <div>
-          <h3>BTC price</h3>
-          <h4 onClick={handleFetchBtcPrice} title="Update price">
-          {isUpdatingBtcPrice ? 'Updating...' : btcPrice ? '$ ' + btcPrice.toLocaleString() : 'Loading...'}
-          </h4>
-        </div>
+        <BTCPrice />
       </header>
 
       <main>
