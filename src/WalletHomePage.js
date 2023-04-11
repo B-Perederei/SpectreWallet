@@ -8,7 +8,7 @@ import './styles.css';
 import CryptoJS from 'crypto-js';
 
 
-function SignedIn() {
+function WalletHomePage() {
   return (
     <div>
         <header>
@@ -105,4 +105,4 @@ function SignedIn() {
   );
 }
 
-export default SignedIn;
+export default WalletHomePage;
