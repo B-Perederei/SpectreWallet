@@ -47,9 +47,9 @@ function WalletLogInPage() {
 
   return (
     <div>
-      <header>
+      <header id="LogIn">
         <a href="http://localhost:3000">
-          <img src={logo} alt="SpectreWallet logo" />
+          <img src={logo} alt="SpectreWallet logo" class = "logo"/>
           <div>
             <h2>SpectreWallet</h2>
             <h4>Browser based Bitcoin wallet</h4>
@@ -58,7 +58,7 @@ function WalletLogInPage() {
         <BTCPrice />
       </header>
 
-      <main>
+      <main id="LogIn">
         <div>
           <h1>
             Secure Bitcoin wallet

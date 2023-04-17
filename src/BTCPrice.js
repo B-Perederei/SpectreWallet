@@ -26,6 +26,7 @@ function BtcPrice() {
       const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
       const data = await response.json();
       setBtcPrice(parseInt(data.price));
+      localStorage.setItem('BTCprice', parseInt(data.price))
     } catch (error) {
       console.error(error);
     } finally {
