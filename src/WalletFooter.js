@@ -10,7 +10,7 @@ function WalletFooter() {
                     This means we never receive your private keys.
                 </p>
             </div>
-        </footer>
+    </footer>
   );
 }
 

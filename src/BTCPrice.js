@@ -37,7 +37,7 @@ function BtcPrice() {
   return (
     <div>
       <h3>BTC price</h3>
-      <h4 onClick={handleFetchBtcPrice} title="Update price">
+      <h4 onClick={handleFetchBtcPrice} title="Update price" id="btcPrice">
         {isUpdatingBtcPrice ? 'Updating...' : btcPrice ? '$ ' + btcPrice.toLocaleString() : 'Loading...'}
       </h4>
     </div>

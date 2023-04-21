@@ -64,7 +64,7 @@ header h4 {
   text-align: left;
 }
 
-h4:hover {
+#btcPrice:hover {
   cursor: pointer;
 }
 
@@ -94,22 +94,18 @@ main#homePage {
   margin: 0;
 }
 
+main#receiveBTC {
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 2rem 0 0 0;
+  align-items: center;
+}
+
 main div {
   position: relative;
   display: flex;
   flex-direction: column;
-}
-
-.buttonsWalletFunctions {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.buttonsWalletFunctions span {
-  margin-bottom: 20px;
 }
 
 main h1 {
@@ -123,6 +119,45 @@ main h2 {
   text-align: center;
 }
 
+.buttonsWalletFunctions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonsWalletFunctions .mainFunctions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.buttonsWalletFunctions .mainFunctions a:first-child {
+  margin-right: 1rem;
+}
+
+.buttonsWalletFunctions .mainFunctions a:last-child {
+  margin-left: 1rem;
+}
+
+.buttonsWalletFunctions span {
+  margin-bottom: 1rem;
+}
+
+.walletBalance h1 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.walletBalance h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+}
 
 .buttonForwarding {
   font-size: 1.2rem;
@@ -138,9 +173,27 @@ main h2 {
   display: inline-block;
 }
 
+#manipulateBTC {
+  width: 200px;
+}
+
+#recoveryPhraseButton {
+  width: 300px;
+}
+
 .buttonForwarding:hover {
   background-color: #fff;
   color: #293133;
+}
+
+.qrcode-container {
+  border: 12px solid white;
+  padding: 0px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 250px;
+  height: 250px;
 }
 
 /* Form styles */

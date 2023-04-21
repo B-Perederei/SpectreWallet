@@ -15,7 +15,7 @@ function WalletHeader() {
             </a>
             <div id="headerDivPriceAndLogout">
                 <BTCPrice />
-                <a href = "/" title="Logout">
+                <a href = "/" title="Logout" target = "_self">
                     <img src={logout} alt="Logout image" class = "logoutImg"/>
                 </a>
             </div>

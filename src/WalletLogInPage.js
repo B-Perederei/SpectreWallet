@@ -38,7 +38,6 @@ function WalletLogInPage() {
       
       localStorage.setItem('privateKey', privateKey);      
       
-      // I want to redirect here
       navigate('/wallet');
     } else {
       console.log("Form is invalid. Please fill all fields correctly.");
