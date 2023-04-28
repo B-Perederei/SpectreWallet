@@ -192,8 +192,57 @@ main h2 {
   margin: 0;
   display: flex;
   align-items: center;
-  width: 250px;
-  height: 250px;
+  width: 265px;
+  height: 265px;
+}
+
+#generateAddressButton {
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color: #46fbaf;
+  color: #000;
+  cursor: pointer;
+  max-width: 350px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#generateAddressButton:hover {
+  background-color: #00edd5;
+}
+
+#addressText {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  position: sticky;
+}
+
+#addressText:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#copiedAddress {
+  margin-top: 0;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline;
+}
+
+main#receiveBTC .address-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 
 /* Form styles */
