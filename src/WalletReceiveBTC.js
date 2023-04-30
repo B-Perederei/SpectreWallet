@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import './styles.css';
-import CryptoJS from 'crypto-js';
 import QRCode from 'qrcode.react';
 
 import WalletHeader from "./WalletHeader";
@@ -22,7 +21,7 @@ function WalletReceiveBTC() {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(address);
     setCopied(true);
-    setTimeout(() => setCopied(false), 5000);
+    setTimeout(() => setCopied(false), 3000);
   }
 
   return (

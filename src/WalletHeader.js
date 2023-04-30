@@ -3,6 +3,8 @@ import BTCPrice from './BTCPrice';
 import logo from "./images/spectre_logo.svg";
 import logout from "./images/logout.svg";
 
+// Write better logic for logout
+
 function WalletHeader() {
   return (
     <header>

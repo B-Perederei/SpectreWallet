@@ -115,7 +115,7 @@ function WalletLogInPage() {
                 </a>
               </li>
               <li>
-                <a href="https://github.com/B-Perederei" target="_blank">
+                <a href="https://github.com/B-Perederei/SpectreWallet" target="_blank">
                   <b>We are fully open source!</b>
                 </a>
               </li>

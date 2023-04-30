@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-//import * as assert from 'assert';
-// import * as bitcoin from 'bitcoinjs-lib';
+/*import * as bitcoin from 'bitcoinjs-lib';
 // import bip32 from 'bip32';
+// import { Buffer } from 'buffer';
 
-
-/*
 const apiEndpoint = 'https://blockstream.info/api';
-const possibleAddresses = 1;
+const possibleAddresses = 100;
 
 const deriveAddress = (node) => {
   const { address } = bitcoin.payments.p2pkh({ pubkey: node.publicKey });
@@ -36,8 +34,10 @@ const BTCBalance = () => {
   useEffect(() => {
     const privateKey = localStorage.getItem('privateKey');
     if (privateKey) {
-      const masterNode = 0;// bitcoin.fromBase58(privateKey);
-      const addresses = deriveAddresses(masterNode, possibleAddresses); // Change the number of addresses as needed
+      
+      const masterNode = 0; //bitcoin.HDNode.fromSeedBuffer(bip39.mnemonicToSeed(privateKey));
+      // const addresses = deriveAddresses(masterNode, possibleAddresses); // Change the number of addresses as needed
+      const addresses = ['14LrmBXD5DBA9Sow6r9Zf9Lu1PJTo9jXHu']
       getBalanceForAddresses(addresses)
         .then(setBalance)
         .catch(console.error);
@@ -55,8 +55,8 @@ const BTCBalance = () => {
         <h1 class="BTCBalanceInUSD">Balance: Loading...</h1>
       )}
     </div>
-
   );
 };
 
-export default BTCBalance;*/
+export default BTCBalance;
+*/

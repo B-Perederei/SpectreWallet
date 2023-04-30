@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 import CryptoJS from 'crypto-js';
 
-import BTCPrice from './BTCPrice';
 import WalletHeader from "./WalletHeader";
 import WalletFooter from "./WalletFooter";
 import BTCTransactions from "./BTCTransactions";
@@ -21,6 +20,7 @@ function WalletHomePage() {
         <WalletHeader />
 
         <main id="homePage">
+            
             <div class="walletBalance">
                 <h1 class="BTCBalanceInUSD">Balance: 100,60 USD</h1>
                 <h2 class="BTCBalanceInBTC">0,00018595 BTC</h2>
@@ -29,7 +29,7 @@ function WalletHomePage() {
             <div class="buttonsWalletFunctions">
                 <span>
                     <div class = "mainFunctions">
-                        <a href="sendBTC.html" class="buttonForwarding" id = "manipulateBTC" target="_self">
+                        <a href="/sendBTC" class="buttonForwarding" id = "manipulateBTC" target="_self">
                             Send BTC
                         </a>
                         <a href="/receiveBTC" onClick={navigate('/receiveBTC')} class="buttonForwarding" id = "manipulateBTC" target="_self">
