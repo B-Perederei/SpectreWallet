@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Buffer from './bitcoinjs-lib.js';
 import bitcoin from './bitcoinjs-lib.js';
 import networks from './bitcoinjs-lib.js'
-import ecpair from 'ecpair';
+import { ECPairInterface } from 'ecpair';
 import { BIP32Factory } from './bitcoinjs-lib.js';
 // import bip32 from 'bip32';
 // import { Buffer } from 'buffer';
@@ -41,7 +41,7 @@ const BTCBalance = () => {
   useEffect(() => {
     const privateKey = localStorage.getItem('privateKey');
     if (privateKey) {
-      const bip32factory = BIP32Factory(ecpair);
+      const bip32factory = BIP32Factory(ECPairInterface);
       // const bip32factory = Bip32Factory(bitcoinjs.ECPair);
       // const privateKey = Buffer.from(privateKey, 'hex');
 
