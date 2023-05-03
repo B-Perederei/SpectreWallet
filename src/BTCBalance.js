@@ -1,7 +1,14 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
-/*import * as bitcoin from 'bitcoinjs-lib';
+import Buffer from './bitcoinjs-lib.js';
+import bitcoin from './bitcoinjs-lib.js';
+import networks from './bitcoinjs-lib.js'
+import ecpair from 'ecpair';
+import { BIP32Factory } from './bitcoinjs-lib.js';
 // import bip32 from 'bip32';
 // import { Buffer } from 'buffer';
+// const bitcoin = require('bitcoinjs-lib');
+// const bip32  = require('bip32');
 
 const apiEndpoint = 'https://blockstream.info/api';
 const possibleAddresses = 100;
@@ -34,10 +41,12 @@ const BTCBalance = () => {
   useEffect(() => {
     const privateKey = localStorage.getItem('privateKey');
     if (privateKey) {
-      
-      const masterNode = 0; //bitcoin.HDNode.fromSeedBuffer(bip39.mnemonicToSeed(privateKey));
-      // const addresses = deriveAddresses(masterNode, possibleAddresses); // Change the number of addresses as needed
-      const addresses = ['14LrmBXD5DBA9Sow6r9Zf9Lu1PJTo9jXHu']
+      const bip32factory = BIP32Factory(ecpair);
+      // const bip32factory = Bip32Factory(bitcoinjs.ECPair);
+      // const privateKey = Buffer.from(privateKey, 'hex');
+
+      // const masterNode = BIP32Factory.fromSeed(privateKey, networks.bitcoin);
+      //const addresses = deriveAddresses(masterNode, possibleAddresses); // Change the number of addresses as needed
       getBalanceForAddresses(addresses)
         .then(setBalance)
         .catch(console.error);
@@ -59,4 +68,3 @@ const BTCBalance = () => {
 };
 
 export default BTCBalance;
-*/

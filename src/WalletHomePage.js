@@ -18,9 +18,8 @@ function WalletHomePage() {
     <div>
 
         <WalletHeader />
-
         <main id="homePage">
-            
+            <BTCBalance />
             <div class="walletBalance">
                 <h1 class="BTCBalanceInUSD">Balance: 100,60 USD</h1>
                 <h2 class="BTCBalanceInBTC">0,00018595 BTC</h2>

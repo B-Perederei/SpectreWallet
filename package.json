@@ -6,10 +6,12 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "babelify": "^10.0.0",
     "bip32": "^4.0.0",
     "bitcoinjs-lib-browser": "^5.1.7",
     "browserify-buffer": "^1.1.2",
     "buffer": "^6.0.3",
+    "buffer-browserify": "^0.2.5",
     "crypto-browserify": "^3.12.0",
     "crypto-js": "^4.1.1",
     "css-select": "^4.1.0",
@@ -21,6 +23,7 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
     "stream": "^0.0.2",
+    "uglify-es": "^3.3.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
