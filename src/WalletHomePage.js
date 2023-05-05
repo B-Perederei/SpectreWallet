@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import './styles.css';
 import CryptoJS from 'crypto-js';
 
@@ -16,15 +15,9 @@ function WalletHomePage() {
   const navigate = useNavigate();  
   return (
     <div>
-
         <WalletHeader />
         <main id="homePage">
             <BTCBalance />
-            <div class="walletBalance">
-                <h1 class="BTCBalanceInUSD">Balance: 100,60 USD</h1>
-                <h2 class="BTCBalanceInBTC">0,00018595 BTC</h2>
-            </div>
-
             <div class="buttonsWalletFunctions">
                 <span>
                     <div class = "mainFunctions">

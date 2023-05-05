@@ -46,6 +46,19 @@ header a {
   margin-left: 1.5rem;
 }
 
+.logoutButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0.2rem 1.2rem 0 0;
+  width: 40px;
+  height: 40px;
+}
+
+.logoutButton:hover {
+  cursor: pointer;
+}
+
 header h2 {
   font-size: 1.8rem;
   margin: 0;

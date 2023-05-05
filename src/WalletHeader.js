@@ -2,10 +2,17 @@ import React from "react";
 import BTCPrice from './BTCPrice';
 import logo from "./images/spectre_logo.svg";
 import logout from "./images/logout.svg";
-
-// Write better logic for logout
+import { useNavigate } from 'react-router-dom';
 
 function WalletHeader() {
+
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    sessionStorage.removeItem('publicAddresses');
+    sessionStorage.removeItem('public')
+    navigate('/');
+  };
+
   return (
     <header>
             <a href = "http://localhost:3000/wallet">
@@ -17,9 +24,9 @@ function WalletHeader() {
             </a>
             <div id="headerDivPriceAndLogout">
                 <BTCPrice />
-                <a href = "/" title="Logout" target = "_self">
-                    <img src={logout} alt="Logout image" class = "logoutImg"/>
-                </a>
+                <button onClick={handleLogout} title="Logout" target="_self" class="logoutButton">
+                    <img src={logout} alt="Logout image" className="logoutImg"/>
+                </button>
             </div>
     </header>
   );

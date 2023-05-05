@@ -5,7 +5,7 @@ function WalletFooter() {
     <footer>
             <div>
                 <p>
-                    This page uses javascript to generate your addresses and sign your transactions within your browser.
+                    This page uses JavaScript to generate your addresses and sign your transactions within your browser.
                     <br />
                     This means we never receive your private keys.
                 </p>

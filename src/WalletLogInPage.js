@@ -36,8 +36,12 @@ function WalletLogInPage() {
       const salt =  CryptoJS.SHA256(email + password).toString();
       const privateKey = CryptoJS.PBKDF2(password, salt, { keySize: keyLength/32, iterations: iterations, hasher: CryptoJS.algo.SHA256 });
       
-      localStorage.setItem('privateKey', privateKey);      
+      sessionStorage.setItem('privateKey', privateKey);      
       
+      // Where can I save that array and store it while the has been closed
+      const publicAddresses = ['3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd', '14LrmBXD5DBA9Sow6r9Zf9Lu1PJTo9jXHu']
+      sessionStorage.setItem('publicAddresses', JSON.stringify(publicAddresses));
+
       navigate('/wallet');
     } else {
       console.log("Form is invalid. Please fill all fields correctly.");

@@ -23,6 +23,8 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
     "stream": "^0.0.2",
+    "tiny-secp256k1": "^2.2.1",
+    "tiny-secp256k1-browserify": "^2.2.1-1",
     "uglify-es": "^3.3.9",
     "web-vitals": "^2.1.4"
   },

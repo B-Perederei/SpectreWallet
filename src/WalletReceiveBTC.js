@@ -8,12 +8,13 @@ import WalletFooter from "./WalletFooter";
 // Write code for logging out
 
 function WalletReceiveBTC() {
-  const [address, setAddress] = useState('3Kw2TQ93iMUYCQQ1NcaNkoo3TfaJ3QsZKS');
+  const addresses = JSON.parse(sessionStorage.getItem('publicAddresses'));
+  const [address, setAddress] = useState(addresses[0]);
   const [copied, setCopied] = useState(false);
 
   const generateAddress = () => {
     // logic to generate a new address
-    const newAddress = '3Kw2TQ93iMUYCQQ1NcaNkoo3TfaJ3QsZKS';
+    const newAddress = addresses[Math.floor(Math.random()*addresses.length)];
     setAddress(newAddress);
     setCopied(false);
   }
