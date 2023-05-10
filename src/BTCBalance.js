@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+// import CoinKey from 'coinkey';
 //import {BIP32Factory} from './bitcoinjs.js';
 // import bip32 from 'bip32';
 // import { Buffer } from 'buffer';
@@ -28,6 +29,8 @@ const deriveAddresses = (node, count) => {
 const apiEndpoint = 'https://blockchain.info/multiaddr?active=';
 
 const getBalanceForAddresses = async (addresses) => {
+  // const seed = 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3'
+  // const keyPair = CoinKey.fromMasterSeed(new Uint8Array(seed.match(/.{1,2}/g).map(byte => parseInt(byte, 16))));
   const url = apiEndpoint + addresses.join("|");
   const response = await fetch(url);
   const data = await response.json();

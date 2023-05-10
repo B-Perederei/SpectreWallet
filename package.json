@@ -12,6 +12,7 @@
     "browserify-buffer": "^1.1.2",
     "buffer": "^6.0.3",
     "buffer-browserify": "^0.2.5",
+    "coinkey": "^3.0.0",
     "crypto-browserify": "^3.12.0",
     "crypto-js": "^4.1.1",
     "css-select": "^4.1.0",
