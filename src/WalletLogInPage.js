@@ -38,7 +38,7 @@ function WalletLogInPage() {
       
       sessionStorage.setItem('privateKey', privateKey);      
       
-      // Where can I save that array and store it while the has been closed
+      // My extended public key
       const publicAddresses = ['xpub6CsEhhbnonP7eWHsnSvudAVR7MVyaqabZmtbe9fQGdy3p7CbnFJwU2uWinC1uATFtMfHM1tCcqyL1GVGsErNK4PfjsqiX6tzshDzdKxL9Ux'] // ['3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd', '14LrmBXD5DBA9Sow6r9Zf9Lu1PJTo9jXHu']
       sessionStorage.setItem('publicAddresses', JSON.stringify(publicAddresses));
 

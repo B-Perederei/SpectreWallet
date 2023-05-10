@@ -16,9 +16,10 @@ function BTCTransactions() {
           const isSent = tx.inputs.some((input) => input.prev_out.addr === xpubKey);
           const status = isSent ? "Sent" : "Received";
           const btcAmount = tx.result / 1e8;
-          const usdAmount = btcAmount * localStorage.getItem('BTCPrice');
+          const usdAmount = btcAmount * sessionStorage.getItem('BTCPrice');
+          const hash = tx.hash;
 
-          return { timestamp, status, btcAmount, usdAmount };
+          return { timestamp, status, btcAmount, usdAmount, hash };
         });
 
         // Sort transactions in reverse chronological order
@@ -31,27 +32,37 @@ function BTCTransactions() {
 
   return (
     <div>
-      <h2>Recent transactions</h2>
+      <h2 class='transactionHistoryTitle'>Transaction History</h2>
       <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Status</th>
-            <th>BTC</th>
-            <th>USD</th>
-          </tr>
-        </thead>
         <tbody>
-          {transactions.map((tx, index) => (
-            <tr key={index}>
-              <td>{tx.timestamp.toLocaleDateString()}</td>
-              <td>{tx.timestamp.toLocaleTimeString()}</td>
-              <td>{tx.status}</td>
-              <td>{tx.btcAmount.toFixed(8)}</td>
-              <td>{tx.usdAmount.toFixed(2)}</td>
-            </tr>
-          ))}
+          {transactions.length > 0 ? (
+            transactions.map((tx, index) => (
+              <tr key={index}>
+                <a href={`https://www.blockchain.com/explorer/transactions/btc/${tx.hash}`} target="_blank">
+                  <td>{tx.status} <br /> {tx.timestamp.toLocaleDateString()}</td>
+                  <td>{tx.status === 'Received' ? `+ ${tx.usdAmount.toFixed(2)} USD` : `- ${tx.usdAmount.toFixed(2)} USD`}
+                    <br />
+                    {tx.btcAmount.toFixed(8)} BTC
+                  </td>
+                </a>
+              </tr>
+            ))
+          ) : (
+            <React.Fragment>
+              <tr>
+                <td>Loading...</td>
+                <td>Loading...</td>
+              </tr>
+              <tr>
+                <td>Loading...</td>
+                <td>Loading...</td>
+              </tr>
+              <tr>
+                <td>Loading...</td>
+                <td>Loading...</td>
+              </tr>
+            </React.Fragment>
+          )}
         </tbody>
       </table>
     </div>

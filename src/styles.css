@@ -258,6 +258,52 @@ main#receiveBTC .address-container {
   margin-top: 1rem;
 }
 
+/* Transacion history table styles */
+
+.transactionHistoryTitle {
+  margin-top: 2rem;
+  font-size: 1.7rem;
+}
+
+table a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: separate;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  border: solid black 2px;
+}
+
+th,
+td {
+  padding: 0.8rem;
+  border: 0px solid #9041f0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #000;
+}
+
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+tr {
+  background-color: #00ccff;
+}
+
+tr:hover {
+  background-color: #00f5bc;
+}
+
 /* Form styles */
 form {
   display: flex;

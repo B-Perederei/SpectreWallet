@@ -29,7 +29,6 @@ const apiEndpoint = 'https://blockchain.info/multiaddr?active=';
 
 const getBalanceForAddresses = async (addresses) => {
   const url = apiEndpoint + addresses.join("|");
-  console.log(url)
   const response = await fetch(url);
   const data = await response.json();
   return data.addresses.reduce((total, address) => total + address.final_balance, 0) / 1e8;
@@ -37,7 +36,7 @@ const getBalanceForAddresses = async (addresses) => {
 
 const BTCBalance = () => {
   const [balance, setBalance] = useState(sessionStorage.getItem('Balance'));
-  const price = localStorage.getItem('BTCPrice')
+  const price = sessionStorage.getItem('BTCPrice')
   const navigate = useNavigate(); 
 
   useEffect(() => {
