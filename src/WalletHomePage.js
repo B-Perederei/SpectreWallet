@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
-import CryptoJS from 'crypto-js';
 
 import WalletHeader from "./WalletHeader";
 import WalletFooter from "./WalletFooter";
 import BTCTransactions from "./BTCTransactions";
 import BTCBalance from "./BTCBalance";
 
-// Write code for logging out
 
 function WalletHomePage() {
 
