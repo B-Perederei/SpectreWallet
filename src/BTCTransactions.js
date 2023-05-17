@@ -2,32 +2,50 @@ import React, { useState, useEffect } from "react";
 
 function BTCTransactions() {
   const [transactions, setTransactions] = useState([]);
+  const [canFetch, setCanFetch] = useState(true);
 
   useEffect(() => {
-    const xpubKey = JSON.parse(sessionStorage.getItem('publicAddresses'));
-    const apiUrl = `https://blockchain.info/multiaddr?active=${xpubKey}`;
+    const fetchTransactions = () => {
+      const xpubKey = JSON.parse(sessionStorage.getItem('publicAddresses'));
+      const apiUrl = `https://blockchain.info/multiaddr?active=${xpubKey}`;
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const txs = data.txs.map((tx) => {
-          // Extract relevant transaction data
-          const timestamp = new Date(tx.time * 1000);
-          const isSent = tx.inputs.some((input) => input.prev_out.addr === xpubKey);
-          const status = isSent ? "Sent" : "Received";
-          const btcAmount = tx.result / 1e8;
-          const usdAmount = btcAmount * sessionStorage.getItem('BTCPrice');
-          const hash = tx.hash;
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const txs = data.txs.map((tx) => {
+            // Extract relevant transaction data
+            const timestamp = new Date(tx.time * 1000);
+            const isSent = tx.inputs.some((input) => input.prev_out.addr === xpubKey);
+            const status = isSent ? "Sent" : "Received";
+            const btcAmount = tx.result / 1e8;
+            const usdAmount = btcAmount * sessionStorage.getItem('BTCPrice');
+            const hash = tx.hash;
 
-          return { timestamp, status, btcAmount, usdAmount, hash };
-        });
+            return { timestamp, status, btcAmount, usdAmount, hash };
+          });
 
-        // Sort transactions in reverse chronological order
-        const sortedTxs = txs.sort((a, b) => b.timestamp - a.timestamp);
+          // Sort transactions in reverse chronological order
+          const sortedTxs = txs.sort((a, b) => b.timestamp - a.timestamp);
 
-        setTransactions(sortedTxs);
-      })
-      .catch((error) => console.error(error));
+          setTransactions(sortedTxs);
+          setCanFetch(true);
+        })
+        .catch((error) => console.error(error));
+    };
+
+    // Fetch transactions initially
+    fetchTransactions();
+
+    // Interval for automatic fetch
+    const reloadInterval = 10*1000;
+    const intervalId = setInterval(() => {
+      if (canFetch) {
+        fetchTransactions();
+        setCanFetch(false);
+      }
+    }, reloadInterval);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

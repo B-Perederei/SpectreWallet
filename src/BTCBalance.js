@@ -1,36 +1,10 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import CoinKey from 'coinkey';
-//import {BIP32Factory} from './bitcoinjs.js';
-// import bip32 from 'bip32';
-// import { Buffer } from 'buffer';
-// const bitcoin = require('bitcoinjs-lib');
-// const bip32  = require('bip32');
-/*
-const possibleAddresses = 100;
-
-const deriveAddress = (node) => {
-  const { address } = bitcoin.payments.p2pkh({ pubkey: node.publicKey });
-  return address;
-};
-
-const deriveAddresses = (node, count) => {
-  const addresses = [];
-  for (let i = 0; i < count; i++) {
-    const childNode = node.derive(i);
-    const address = deriveAddress(childNode);
-    addresses.push(address);
-  }
-  return addresses;
-};
-*/
 
 const apiEndpoint = 'https://blockchain.info/multiaddr?active=';
 
 const getBalanceForAddresses = async (addresses) => {
-  // const seed = 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3'
-  // const keyPair = CoinKey.fromMasterSeed(new Uint8Array(seed.match(/.{1,2}/g).map(byte => parseInt(byte, 16))));
   const url = apiEndpoint + addresses.join("|");
   const response = await fetch(url);
   const data = await response.json();
@@ -48,26 +22,23 @@ const BTCBalance = () => {
     }
     const publicAddresses = JSON.parse(sessionStorage.getItem('publicAddresses'));
     if (publicAddresses) {
-      /*
-      const bip32 = BIP32Factory(ecc);
-      const node = bip32.fromSeed(privateKey)
-      
-      // const bip32factory = Bip32Factory(bitcoinjs.ECPair);
-      // const privateKey = Buffer.from(privateKey, 'hex');
+      const interval = setInterval(() => {
+        sessionStorage.setItem('Balance', balance || '0');
+        setBalance(sessionStorage.getItem('Balance'));
+        getBalanceForAddresses(publicAddresses)
+          .then(newBalance => {
+            setBalance(newBalance);
+            sessionStorage.setItem('Balance', newBalance);
+          })
+          .catch(console.error);
+      }, 10*1000);
 
-      // const masterNode = BIP32Factory.fromSeed(privateKey, networks.bitcoin);
-      //const addresses = deriveAddresses(masterNode, possibleAddresses); // Change the number of addresses as needed
-      const address = ['123']*/
-      sessionStorage.setItem('Balance', balance || '0');
-      setBalance(sessionStorage.getItem('Balance'));
-      getBalanceForAddresses(publicAddresses)
-        .then(newBalance => {
-          setBalance(newBalance);
-          sessionStorage.setItem('Balance', newBalance);
-        })
-        .catch(console.error);
+      return () => {
+        clearInterval(interval);
+      };
     }
   }, []);
+
 
   return (
     <div class="walletBalance">
