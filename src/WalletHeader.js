@@ -16,7 +16,7 @@ function WalletHeader() {
 
   return (
     <header>
-            <a href = "http://localhost:3000/wallet">
+            <a href = "/wallet">
                 <img src={logo} alt="SpectreWallet logo" class = "logo"/>
                 <div>
                     <h2>SpectreWallet</h2>

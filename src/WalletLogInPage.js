@@ -55,7 +55,7 @@ function WalletLogInPage() {
   return (
     <div>
       <header id="LogIn">
-        <a href="http://localhost:3000">
+        <a href="/">
           <img src={logo} alt="SpectreWallet logo" class = "logo"/>
           <div>
             <h2>SpectreWallet</h2>
