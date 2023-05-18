@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/SpectreWallet/static/css/main.1e20eb6a.css",
-    "main.js": "/SpectreWallet/static/js/main.b85d9488.js",
-    "static/media/spectre_logo.svg": "/SpectreWallet/static/media/spectre_logo.c0bc45cec89e898a043a6a49938ac3ab.svg",
-    "static/media/mail_logo.svg": "/SpectreWallet/static/media/mail_logo.7f140fcede9da8b11360792e5682d368.svg",
-    "static/media/logout.svg": "/SpectreWallet/static/media/logout.8ca97e45bc1190eb268e74099df2a35c.svg",
-    "static/media/telegram_logo.svg": "/SpectreWallet/static/media/telegram_logo.3c6dfa030e32b121a7b94dcc0fd170fa.svg",
-    "static/media/github_logo.svg": "/SpectreWallet/static/media/github_logo.451c970bc5a22b119e64956d3506f0ae.svg",
-    "index.html": "/SpectreWallet/index.html",
-    "main.1e20eb6a.css.map": "/SpectreWallet/static/css/main.1e20eb6a.css.map",
-    "main.b85d9488.js.map": "/SpectreWallet/static/js/main.b85d9488.js.map"
+    "main.css": "/static/css/main.1e20eb6a.css",
+    "main.js": "/static/js/main.22e8d324.js",
+    "static/media/spectre_logo.svg": "/static/media/spectre_logo.c0bc45cec89e898a043a6a49938ac3ab.svg",
+    "static/media/mail_logo.svg": "/static/media/mail_logo.7f140fcede9da8b11360792e5682d368.svg",
+    "static/media/logout.svg": "/static/media/logout.8ca97e45bc1190eb268e74099df2a35c.svg",
+    "static/media/telegram_logo.svg": "/static/media/telegram_logo.3c6dfa030e32b121a7b94dcc0fd170fa.svg",
+    "static/media/github_logo.svg": "/static/media/github_logo.451c970bc5a22b119e64956d3506f0ae.svg",
+    "index.html": "/index.html",
+    "main.1e20eb6a.css.map": "/static/css/main.1e20eb6a.css.map",
+    "main.22e8d324.js.map": "/static/js/main.22e8d324.js.map"
   },
   "entrypoints": [
     "static/css/main.1e20eb6a.css",
-    "static/js/main.b85d9488.js"
+    "static/js/main.22e8d324.js"
   ]
 }
