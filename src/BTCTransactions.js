@@ -6,8 +6,8 @@ function BTCTransactions() {
 
   useEffect(() => {
     const fetchTransactions = () => {
-      const xpubKey = JSON.parse(sessionStorage.getItem('publicAddresses'));
-      const apiUrl = `https://blockchain.info/multiaddr?active=${xpubKey}`;
+      const xpubKey = sessionStorage.getItem('rootXpub');
+      const apiUrl = 'https://blockchain.info/multiaddr?active=' + xpubKey;
 
       fetch(apiUrl)
         .then((response) => response.json())

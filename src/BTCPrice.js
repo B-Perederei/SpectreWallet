@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 function BtcPrice() {
   const [btcPrice, setBtcPrice] = useState(null);
   const [isUpdatingBtcPrice, setIsUpdatingBtcPrice] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
     const fetchBtcPrice = async () => {
@@ -10,9 +11,10 @@ function BtcPrice() {
         const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
         const data = await response.json();
         setBtcPrice(parseInt(data.price));
-        sessionStorage.setItem('BTCPrice', parseInt(data.price))
+        sessionStorage.setItem('BTCPrice', parseInt(data.price));
       } catch (error) {
         console.error(error);
+        setFetchError(true);
       }
     };
     fetchBtcPrice();
@@ -28,9 +30,10 @@ function BtcPrice() {
       const data = await response.json();
       const currentPrice = parseInt(data.price);
       setBtcPrice(parseInt(currentPrice));
-      sessionStorage.setItem('BTCPrice', currentPrice)
+      sessionStorage.setItem('BTCPrice', currentPrice);
     } catch (error) {
       console.error(error);
+      setFetchError(true);
     } finally {
       setIsUpdatingBtcPrice(false);
     }
@@ -40,7 +43,13 @@ function BtcPrice() {
     <div>
       <h3>BTC price</h3>
       <h4 onClick={handleFetchBtcPrice} title="Update price" id="btcPrice">
-        {isUpdatingBtcPrice ? 'Updating...' : btcPrice ? '$ ' + btcPrice.toLocaleString() : 'Loading...'}
+        {isUpdatingBtcPrice
+          ? 'Updating...'
+          : fetchError
+          ? 'Not Available'
+          : btcPrice
+          ? '$ ' + btcPrice.toLocaleString()
+          : 'Loading...'}
       </h4>
     </div>
   );

@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 
 import CryptoJS from 'crypto-js';
 
-
 import logo from "./images/spectre_logo.svg";
 import telegramLogo from "./images/telegram_logo.svg";
 import mailLogo from "./images/mail_logo.svg";
 import githubLogo from "./images/github_logo.svg";
 
 import BTCPrice from './BTCPrice';
+// import * as bitcoin from './bitcoinjs-lib'
 
 function WalletLogInPage() {
   const [email, setEmail] = useState("");
@@ -39,15 +39,12 @@ function WalletLogInPage() {
       
       sessionStorage.setItem('privateKey', privateKey);      
       
-      // My extended public key
-      // const bip32 = bitcoin.BIP32Factory(bitcoin.tin)
-      // bitcoin.ECPair
-      // bitcoin.bip32.BIP32Factory();
+      // Pseudocode for lib
       // const hdNode = bitcoin.fromPrivateKey(String(privateKey), bitcoin.networks.bitcoin);
-      //console.log(hdNode.derivePath("m/0'/0/0").keyPair.getAddress());
+      // const rootXpub = hdNode.neutered().toBase58();
 
-      const publicAddresses = ['xpub6CsEhhbnonP7eWHsnSvudAVR7MVyaqabZmtbe9fQGdy3p7CbnFJwU2uWinC1uATFtMfHM1tCcqyL1GVGsErNK4PfjsqiX6tzshDzdKxL9Ux'] // ['3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd', '14LrmBXD5DBA9Sow6r9Zf9Lu1PJTo9jXHu']
-      sessionStorage.setItem('publicAddresses', JSON.stringify(publicAddresses));
+      const rootXpub = 'xpub6CsEhhbnonP7eWHsnSvudAVR7MVyaqabZmtbe9fQGdy3p7CbnFJwU2uWinC1uATFtMfHM1tCcqyL1GVGsErNK4PfjsqiX6tzshDzdKxL9Ux'
+      sessionStorage.setItem('rootXpub', rootXpub);
 
       navigate('/wallet');
     } else {

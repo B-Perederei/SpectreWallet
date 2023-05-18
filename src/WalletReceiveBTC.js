@@ -5,18 +5,32 @@ import QRCode from 'qrcode.react';
 import WalletHeader from "./WalletHeader";
 import WalletFooter from "./WalletFooter";
 
-// Write code for logging out
+// import * as bitcoin from './bitcoinjs-lib'
 
 function WalletReceiveBTC() {
-  const addresses = JSON.parse(sessionStorage.getItem('publicAddresses'));
-  const [address, setAddress] = useState(addresses[0]);
+  const rootXpub = sessionStorage.getItem('rootXpub');
+  const [addressNum, setAddressNum] = useState(0);
+  const [address, setAddress] = useState(deriveNewAddress(addressNum));
   const [copied, setCopied] = useState(false);
 
-  const generateAddress = () => {
-    // logic to generate a new address
-    const newAddress = addresses[Math.floor(Math.random()*addresses.length)];
-    setAddress(newAddress);
+  useEffect(() => {
+    setAddress(deriveNewAddress(addressNum));
+  }, [addressNum]);
+
+  const getNewAddress = () => {
+    setAddressNum(addressNum + 1);
     setCopied(false);
+  }
+
+  function deriveNewAddress() {
+    // Bitcoinjs-lib generation
+    // const hdNode = bitcoin.HDNode.fromBase58(rootXpub, bitcoin.networks.bitcoin);
+    // const addressNode = hdNode.derive(addressNum);
+    // const address = bitcoin.payments.p2pkh({ pubkey: addressNode.publicKey, network }).address;
+    // return address
+    const addresses = ['3E8ociqZa9mZUSwGdSmAEMAoAxBK3FNDcd', '14LrmBXD5DBA9Sow6r9Zf9Lu1PJTo9jXHu', 'mxnrVysAsvyB5Dr6PvdkdYS1i6pivtgwg5', 'movkjLwR7KHdXzD1yCKCBGQFNGTiG7NA56']
+    const newAddress = addresses[addressNum % addresses.length];
+    return newAddress
   }
 
   const copyToClipboard = () => {
@@ -37,7 +51,7 @@ function WalletReceiveBTC() {
               {copied && <p id="copiedAddress">Copied!</p>}
             </div>
           
-          <button onClick={generateAddress} id="generateAddressButton">Generate another address</button>
+          <button onClick={getNewAddress} id="generateAddressButton">Generate another address</button>
           <a href="/wallet" class="buttonForwarding">
               Return back
           </a>    

@@ -9,7 +9,7 @@ function WalletHeader() {
   const navigate = useNavigate();
   const handleLogout = () => {
     sessionStorage.removeItem('privateKey');
-    sessionStorage.removeItem('publicAddresses');
+    sessionStorage.removeItem('rootXpub');
     sessionStorage.removeItem('BTCBalance');
     navigate('/');
   };
